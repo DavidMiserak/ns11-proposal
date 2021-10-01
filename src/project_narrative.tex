@@ -135,9 +135,48 @@ Sat-3 & 19.0752 N-s\\
 Total absolute impulsive actuation by three satellites is
 $\sum_{i=1}^{N} \int_{0}^{T} (|u_{xi}(t)| + |u_{yi}(t)| + |u_{zi}(t)|) dt = 47.0553$ N-s.
 
-CubedOS is being developed at Vermont Technical College’s CubeSat Laboratory with the purpose of providing a robust software platform for CubeSat missions and of easing the development of CubeSat flight software. In many respects the goals of CubedOS are similar to those of the Core Flight Executive (cFE) written by NASA Goddard Space Flight Center [reference here] and F’ developed by NASA’s Jet Propulsion Laboratory [reference here].  However, unlike cFE and F’, CubedOS is written in SPARK and verified to be free of the possibility of runtime error. SPARK has also been used to provide some other correctness properties in certain cases.		
-Although CubedOS was developed to support the CubeSat missions at Vermont Technical College, the intent is for CubedOS to be general enough and modular enough for other groups to profitably employ the system. Since every mission uses different hardware and has different software requirements, CubedOS is designed as a framework into which modules can be plugged to implement whatever mission functionality is required. CubedOS provides inter-module communication and other common services required by many missions. CubedOS thus serves both as a kind of operating environment and as a library of useful tools and functions. 
-CubedOS modules are written in Spark and, at a minimum, proved free of runtime error. However, CubedOS also allows modules, or parts of modules, to be written in full Ada or C if desired. This allows CubedOS to take advantage of third party C libraries or to integrate with an existing C code base. It is a work in progress to create a bridge between CubedOS and CFS so that current CFS users can experiment with CubedOS and eventually migrate mission critical components to CubedOS. 					
-The architecture of CubedOS is a collection of modules, each containing one or more Ada tasks. Although CubedOS is written in Spark there need not be a one-to-one correspondence between CubedOS modules and Spark packages. In fact, modules are routinely written as a collection of Spark packages in a package hierarchy. 				
-Critical to the plug-and-play nature of CubedOS, each module is self-contained and does not make direct use of any code that is private to another module. However, CubedOS does allow shared library packages to be written for holding utility subprograms of various kinds. The CubedOS distribution includes a collection of such library packages that are used by CubedOS core modules, but that can also be used by application modules. 
-In the language of operating systems, CubedOS can be said to have a microkernel architecture where task and memory management is provided by the Ada runtime system. Both low level facilities, such as device drivers, and high level facilities, such as communication protocol handlers, are all implemented as CubedOS modules. All modules are treated equally by CubedOS; any layered structuring of the modules is imposed by programmer convention.
+CubedOS is being developed at Vermont Technical College’s CubeSat
+Laboratory with the purpose of providing a robust software platform
+for CubeSat missions and of easing the development of CubeSat flight
+software. In many respects the goals of CubedOS are similar to those
+of the Core Flight Executive (cFE) written by NASA Goddard Space
+Flight Center [reference here] and F’ developed by NASA’s Jet
+Propulsion Laboratory [reference here].  However, unlike cFE and F’,
+CubedOS is written in SPARK and verified to be free of the possibility
+of runtime error. SPARK has also been used to provide some other
+correctness properties in certain cases.  Although CubedOS was
+developed to support the CubeSat missions at Vermont Technical
+College, the intent is for CubedOS to be general enough and modular
+enough for other groups to profitably employ the system. Since every
+mission uses different hardware and has different software
+requirements, CubedOS is designed as a framework into which modules
+can be plugged to implement whatever mission functionality is
+required. CubedOS provides inter-module communication and other common
+services required by many missions. CubedOS thus serves both as a kind
+of operating environment and as a library of useful tools and
+functions.  CubedOS modules are written in Spark and, at a minimum,
+proved free of runtime error. However, CubedOS also allows modules, or
+parts of modules, to be written in full Ada or C if desired. This
+allows CubedOS to take advantage of third party C libraries or to
+integrate with an existing C code base. It is a work in progress to
+create a bridge between CubedOS and CFS so that current CFS users can
+experiment with CubedOS and eventually migrate mission critical
+components to CubedOS.  The architecture of CubedOS is a collection of
+modules, each containing one or more Ada tasks. Although CubedOS is
+written in Spark there need not be a one-to-one correspondence between
+CubedOS modules and Spark packages. In fact, modules are routinely
+written as a collection of Spark packages in a package hierarchy.
+Critical to the plug-and-play nature of CubedOS, each module is
+self-contained and does not make direct use of any code that is
+private to another module. However, CubedOS does allow shared library
+packages to be written for holding utility subprograms of various
+kinds. The CubedOS distribution includes a collection of such library
+packages that are used by CubedOS core modules, but that can also be
+used by application modules.  In the language of operating systems,
+CubedOS can be said to have a microkernel architecture where task and
+memory management is provided by the Ada runtime system. Both low
+level facilities, such as device drivers, and high level facilities,
+such as communication protocol handlers, are all implemented as
+CubedOS modules. All modules are treated equally by CubedOS; any
+layered structuring of the modules is imposed by programmer
+convention.
